@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Ejercicio 3</title>
+  <style>
+    .input-error {
+      border: 1px solid rgba(255, 0, 0, 0.712); 
+    }
+
+    .error {
+      display: none;
+      color: rgba(255, 0, 0, 0.712);
+    }
+    
+    .form div {
+      width: 50%;
+      display: grid;
+      /* justify-content: center; */
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="form">
+      <div>
+        <label for="">Escribe un número menor a 10</label>
+        <input type="text" name="uno">
+        <span class="error">Este es un error</span>
+      </div>
+      <div>
+        <label for="">Escribe un texto de más de 10 palabras</label>
+        <input type="text" name="dos">
+        <span class="error"></span>
+      </div>
+      <div>
+        <label for="">Es necesario seleccrionar una opcion</label>
+        <select name="items" id="items" name="tres">
+          <option value="uno">Uno</option>
+          <option value="dos">Dos</option>
+          <option value="tres">Tres</option>
+        </select>
+        <span class="error"></span>
+      </div>
+      <button onclick="validate()">Validar y mandar</button>
+    </div>
+  </div>
+  <script>
+    let uno = document.getElementsByName('uno')[0];
+    let dos = document.getElementsByName('dos')[0];
+    let tres = document.getElementsByName('tres')[0];
+
+    function validateUno(value) {
+      let valid = false;
+      if (isNaN(value))
+        valid = true;
+      return valid;
+    }
+
+    function validate() {
+      uno.classList.add("input-error");
+      let span = uno.nextElementSibling
+      // console.log("a")
+      if (validateUno(uno.value)) {
+        span.style.display = 'block';
+      } else {
+        span.style.display = 'none';
+        uno.classList.remove('input-error');
+      }
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Ejercicio 2</title>
+  <style>
+    .container {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(100px, 200px));
+      justify-content: center;
+      align-content: center;
+      height: 90vh;
+    }
+
+    .references {
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="references">
+      <p>Referencias</p>
+    </div>
+    <div id="form">
+      <div class="item">
+          <input type="text">
+          <button class="deleteItem">x</button>
+      </div>
+      <div class="item">
+          <input type="text">
+          <button class="deleteItem">x</button>
+      </div>
+    </div>
+    <button id="add-reference">Agregar una referencia</button>
+  </div>
+  <script>
+    let button = document.getElementById('add-reference');
+    let deleteButtons = document.getElementsByClassName('deleteItem');
+    let form = document.getElementById('form');
+
+    function addReferece () {
+      let newInput = document.createElement('div');
+      newInput.addClass = 'item';
+      newInput.innerHTML = '<input type="text"><button on>x</button>'
+      form.prepend(newInput);
+    }
+
+    function removeReferece (item) {
+      item.remove();
+    }
+
+    button.addEventListener('click', addReferece);
+
+    for (const button of deleteButtons) {
+      console.log(button)
+      // button.addEventListener('click', removeReferece(button)); 
+    }
+  </script>
+</body>
+</html>
